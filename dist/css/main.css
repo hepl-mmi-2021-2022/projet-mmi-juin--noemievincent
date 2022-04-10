@@ -11,15 +11,15 @@ body {
 h1 {
   font-family: "marydale", sans-serif;
   letter-spacing: 4px;
-  color: black;
+  color: #000000;
   text-align: center;
   text-transform: uppercase;
 }
 
 canvas {
   display: block;
-  margin: 20px auto;
-  border: 1px solid rgba(0, 50, 100, 0.4);
+  margin: 90px auto;
+  border: 1px solid #A5BBA1;
 }
 
 ::-moz-selection {
