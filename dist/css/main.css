@@ -5,11 +5,12 @@
 }
 
 body {
-  background: #D7E7D5;
+  background: #D6E9D3;
+  font-family: marydale, sans-serif;
+  padding: 30px;
 }
 
 h1 {
-  font-family: "marydale", sans-serif;
   letter-spacing: 4px;
   color: #000000;
   text-align: center;
@@ -18,8 +19,8 @@ h1 {
 
 canvas {
   display: block;
-  margin: 90px auto;
-  border: 1px solid #A5BBA1;
+  margin: 30px auto;
+  border: 1px solid rgba(108, 117, 107, 0.4);
 }
 
 ::-moz-selection {
