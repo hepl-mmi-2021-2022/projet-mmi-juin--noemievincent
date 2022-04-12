@@ -16,6 +16,7 @@ export const settings = {
         speed: 3,
     },
     dino: {
+        speed: 3,
         head: {
             sx: 22,
             sy: 0,

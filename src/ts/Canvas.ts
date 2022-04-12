@@ -1,22 +1,18 @@
 import {settings} from "./settings";
-import {Body} from "./Dino/Body";
-import {Head} from "./Dino/Head";
-import {Neck} from "./Dino/Neck";
 import {NeckPieces} from "./NeckPieces";
+import {Dino} from "./Dino/Dino";
 
 export class Canvas {
-    private readonly canvasElement: HTMLCanvasElement;
-    private readonly ctx: CanvasRenderingContext2D;
+    public canvasElement: HTMLCanvasElement;
+    public ctx: CanvasRenderingContext2D;
     private limitLinePosition: { x: number; y: number };
     public sprite: HTMLImageElement;
-    public body: Body;
-    public head: Head;
-    public neck: Neck;
     public neckPieces: NeckPieces[];
+    public dino: Dino;
 
-    constructor(canvasElement: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {
-        this.canvasElement = canvasElement;
-        this.ctx = ctx;
+    constructor() {
+        this.canvasElement = document.getElementById('my-canvas') as HTMLCanvasElement;
+        this.ctx = this.canvasElement.getContext('2d');
         this.sprite = new Image();
         this.sprite.src = 'src/img/sprite.png';
         this.limitLinePosition = {
@@ -38,8 +34,6 @@ export class Canvas {
         this.ctx.lineTo(this.canvasElement.width - this.limitLinePosition.x, this.limitLinePosition.y);
         this.ctx.stroke();
 
-        this.neck = new Neck(this.canvasElement, this.ctx, this.sprite);
-        this.body = new Body(this.canvasElement, this.ctx, this.sprite);
-        this.head = new Head(this.canvasElement, this.ctx, this.sprite);
+        this.dino = new Dino(this.canvasElement, this.ctx, this.sprite);
     }
 }

@@ -13,10 +13,21 @@
     <meta name="theme-color" content="#D7E7D5">
 </head>
 <body>
-    <h1>Like A Dino !</h1>
-    <canvas class="canvas" id="my-canvas" height="511" width="288">
-        Texte alternatif à destination des navigateurs qui ne supportent pas canvas.
-    </canvas>
+<h1>Like A Dino !</h1>
+<div class="flex">
+    <div class="stats">
+        <p class="score">Score : 0</p>
+        <p><img src="src/img/dino-head.png" alt="" height="15"> x 2</p>
+    </div>
+    <div class="stats">
+        <p class="speed">speed x 1</p>
+        <p class="tempo">tempo : 95</p>
+    </div>
+</div>
+<canvas class="canvas" id="my-canvas" height="511" width="288">
+    Texte alternatif à destination des navigateurs qui ne supportent pas canvas.
+</canvas>
+
 <script src="dist/js/Main.js"></script>
 </body>
 </html>

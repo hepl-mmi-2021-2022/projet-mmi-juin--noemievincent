@@ -4,8 +4,8 @@ export class Body {
     private readonly canvasElement: HTMLCanvasElement;
     private ctx: CanvasRenderingContext2D;
     private readonly sprite: HTMLImageElement;
-    x: number;
-    y: number;
+    public x: number;
+    public y: number;
     private readonly width: number;
     private readonly height: number;
 
@@ -15,25 +15,22 @@ export class Body {
         this.sprite = sprite;
         this.width = settings.dino.body.width;
         this.height = settings.dino.body.height;
-        this.x = this.canvasElement.width / 2;
-        this.y = this.canvasElement.height - (this.canvasElement.height * settings.limitLine.yRatio) - 6;
+        this.x = 0;
+        this.y = -3;
         this.draw();
     }
 
     draw() {
-        this.ctx.save();
-        this.ctx.translate(this.x, this.y);
         this.ctx.drawImage(
             this.sprite,
             settings.dino.body.sx,
             settings.dino.body.sy,
             this.width,
             this.height,
-            0,
-            0,
+            this.x,
+            this.y,
             this.width,
             this.height,
         );
-        this.ctx.restore();
     }
 }

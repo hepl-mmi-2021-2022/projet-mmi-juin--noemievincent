@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap);
+@import url(https://use.typekit.net/hns0kay.css);
 * * {
   margin: 0;
   padding: 0;
@@ -6,20 +8,21 @@
 
 body {
   background: #D6E9D3;
-  font-family: marydale, sans-serif;
-  padding: 30px;
+  margin-top: 15px;
+  font-family: "Annie Use Your Telescope", cursive;
+  text-align: center;
 }
 
 h1 {
+  font-family: "Marydale", sans-serif;
   letter-spacing: 4px;
   color: #000000;
-  text-align: center;
   text-transform: uppercase;
 }
 
 canvas {
   display: block;
-  margin: 30px auto;
+  margin: 0 auto;
   border: 1px solid rgba(108, 117, 107, 0.4);
 }
 
@@ -29,4 +32,15 @@ canvas {
 
 ::selection {
   background: transparent;
+}
+
+.flex {
+  max-width: 280px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.stats > * {
+  margin-bottom: 5px;
 }
