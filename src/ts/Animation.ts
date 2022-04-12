@@ -20,9 +20,10 @@ export class Animation {
     animate() {
         window.requestAnimationFrame(() => {this.animate();})
         this.ctx.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
+        this.canvas.draw();
+        this.canvas.dino.draw();
         this.neckPieces.forEach((neckPiece: NeckPieces) => {
             neckPiece.update();
         })
-        this.canvas.draw();
     }
 }

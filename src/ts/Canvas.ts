@@ -19,11 +19,12 @@ export class Canvas {
             x: settings.limitLine.startPosition,
             y: this.canvasElement.height - (this.canvasElement.height * settings.limitLine.yRatio),
         }
+        this.draw();
         this.neckPieces = [];
         for (let i = 0; i < settings.neckPieces.maxCount; i++) {
             this.neckPieces.push(new NeckPieces(this.canvasElement, this.ctx, this.sprite));
         }
-        this.draw();
+        this.dino = new Dino(this.canvasElement, this.ctx, this.sprite);
     }
 
     draw() {
@@ -33,7 +34,5 @@ export class Canvas {
         this.ctx.moveTo(this.limitLinePosition.x, this.limitLinePosition.y);
         this.ctx.lineTo(this.canvasElement.width - this.limitLinePosition.x, this.limitLinePosition.y);
         this.ctx.stroke();
-
-        this.dino = new Dino(this.canvasElement, this.ctx, this.sprite);
     }
 }

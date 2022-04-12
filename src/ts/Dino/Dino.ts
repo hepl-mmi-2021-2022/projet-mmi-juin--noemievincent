@@ -23,12 +23,15 @@ export class Dino {
         this.y = this.canvasElement.height - (this.canvasElement.height * settings.limitLine.yRatio);
         this.speed = settings.dino.speed;
         this.direction = '';
-        this.update();
+        this.draw();
     }
 
     draw() {
         this.ctx.save();
         this.ctx.translate(this.x, this.y);
+        if (this.direction === 'right') {
+            this.ctx.scale(-1, 1);
+        }
         this.neck = new Neck(this.canvasElement, this.ctx, this.sprite);
         this.body = new Body(this.canvasElement, this.ctx, this.sprite);
         this.head = new Head(this.canvasElement, this.ctx, this.sprite);
@@ -36,12 +39,11 @@ export class Dino {
     }
 
     update() {
-        if (this.direction === 'left') {
+        if (this.x > settings.neckPieces.x.min && this.direction === 'left') {
             this.x -= this.speed;
-            console.log(this.x);
-        } if (this.direction === 'right') {
+        }
+        if (this.x < settings.neckPieces.x.max && this.direction === 'right') {
             this.x += this.speed;
-            console.log(this.x);
         }
         this.draw();
     }

@@ -2,12 +2,10 @@ import {Animation} from "./Animation";
 import {Dino} from "./Dino/Dino";
 
 export class GameController {
-    private isStart: boolean;
     private animation: Animation;
     private dino: Dino;
 
     constructor(animation: Animation, dino: Dino) {
-        this.isStart = false;
         this.animation = animation;
         this.dino = dino;
         this.addEventListeners();

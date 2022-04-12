@@ -41,9 +41,9 @@ Voici un [lien](https://youtu.be/si-iB-oUMtc) vers une vidéo du jeu.
 - [ ] CSS
 - [x] dessiner le dinosaure
 - [x] faire tomber les morceaux de cou
-- [ ] gérer le déplacement du dinosaure
+- [x] gérer le déplacement du dinosaure
 - [ ] gérer les vies
-- [ ] détecter la collision du cou, l'ajouter au dinosaure et produire un son
+- [ ] détecter la collision du cou, l'ajouter au dinosaure (et produire un son)
 - [ ] faire augmenter le score
 - [ ] faire augmenter la vitesse et le tempo
 - [ ] apparition mots d'encouragements
