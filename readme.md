@@ -40,7 +40,7 @@ Voici un [lien](https://youtu.be/si-iB-oUMtc) vers une vidéo du jeu.
 - [ ] HTML
 - [ ] CSS
 - [x] dessiner le dinosaure
-- [ ] faire tomber les morceaux de cou
+- [x] faire tomber les morceaux de cou
 - [ ] gérer le déplacement du dinosaure
 - [ ] gérer les vies
 - [ ] détecter la collision du cou, l'ajouter au dinosaure et produire un son

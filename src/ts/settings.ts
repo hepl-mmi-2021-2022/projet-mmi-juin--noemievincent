@@ -11,7 +11,7 @@ export const settings = {
         sy: 0,
         height: 26,
         width: 12,
-        maxCount: 3,
+        maxCount: 1,
         x: {min: 70, max: 210},
         speed: 3,
     },

@@ -9,9 +9,9 @@ export class Canvas {
     private readonly ctx: CanvasRenderingContext2D;
     private limitLinePosition: { x: number; y: number };
     public sprite: HTMLImageElement;
-    private body: Body;
-    private head: Head;
-    private neck: Neck;
+    public body: Body;
+    public head: Head;
+    public neck: Neck;
     public neckPieces: NeckPieces[];
 
     constructor(canvasElement: HTMLCanvasElement, ctx: CanvasRenderingContext2D) {
@@ -24,10 +24,7 @@ export class Canvas {
             y: this.canvasElement.height - (this.canvasElement.height * settings.limitLine.yRatio),
         }
         this.neckPieces = [];
-        this.sprite.onload = () => {
-            this.neck = new Neck(this.canvasElement, this.ctx, this.sprite);
-            this.body = new Body(this.canvasElement, this.ctx, this.sprite);
-            this.head = new Head(this.canvasElement, this.ctx, this.sprite);
+        for (let i = 0; i < settings.neckPieces.maxCount; i++) {
             this.neckPieces.push(new NeckPieces(this.canvasElement, this.ctx, this.sprite));
         }
         this.draw();
@@ -40,5 +37,9 @@ export class Canvas {
         this.ctx.moveTo(this.limitLinePosition.x, this.limitLinePosition.y);
         this.ctx.lineTo(this.canvasElement.width - this.limitLinePosition.x, this.limitLinePosition.y);
         this.ctx.stroke();
+
+        this.neck = new Neck(this.canvasElement, this.ctx, this.sprite);
+        this.body = new Body(this.canvasElement, this.ctx, this.sprite);
+        this.head = new Head(this.canvasElement, this.ctx, this.sprite);
     }
 }

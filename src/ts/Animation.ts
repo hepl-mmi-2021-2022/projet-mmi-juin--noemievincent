@@ -1,6 +1,6 @@
 import {NeckPieces} from "./NeckPieces";
 import {Canvas} from "./Canvas";
-import {settings} from "./settings";
+
 
 export class Animation {
     private readonly canvasElement: HTMLCanvasElement;
@@ -19,6 +19,11 @@ export class Animation {
     }
 
     animate() {
+        this.ctx.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
+        this.canvas.draw();
+        this.neckPieces.forEach((neckPiece: NeckPieces) => {
+            neckPiece.update();
+        })
         window.requestAnimationFrame(() => {
             this.animate();
         })
