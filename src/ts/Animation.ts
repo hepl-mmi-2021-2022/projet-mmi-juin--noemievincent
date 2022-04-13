@@ -1,5 +1,6 @@
 import {NeckPieces} from "./NeckPieces";
 import {Canvas} from "./Canvas";
+import {settings} from "./settings";
 
 export class Animation {
     private readonly canvasElement: HTMLCanvasElement;
@@ -24,6 +25,7 @@ export class Animation {
         this.canvas.dino.draw();
         this.neckPieces.forEach((neckPiece: NeckPieces) => {
             neckPiece.update();
+            // neckPiece.draw();
         })
     }
 }

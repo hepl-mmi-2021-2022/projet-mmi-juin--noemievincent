@@ -1,6 +1,8 @@
 import {settings} from "./settings";
 import {NeckPieces} from "./NeckPieces";
 import {Dino} from "./Dino/Dino";
+import {Score} from "./Score";
+import {Life} from "./Life";
 
 export class Canvas {
     public canvasElement: HTMLCanvasElement;
@@ -24,7 +26,7 @@ export class Canvas {
         for (let i = 0; i < settings.neckPieces.maxCount; i++) {
             this.neckPieces.push(new NeckPieces(this.canvasElement, this.ctx, this.sprite));
         }
-        this.dino = new Dino(this.canvasElement, this.ctx, this.sprite);
+        this.dino = new Dino(this.canvasElement, this.ctx, this.sprite, this.neckPieces);
     }
 
     draw() {

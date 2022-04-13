@@ -6,8 +6,8 @@ export class Neck {
     private readonly sprite: HTMLImageElement;
     public x: number;
     public y: number;
-    private readonly width: number;
-    private readonly height: number;
+    readonly width: number;
+    readonly height: number;
 
     constructor(canvasElement: HTMLCanvasElement, ctx: CanvasRenderingContext2D, sprite: HTMLImageElement) {
         this.canvasElement = canvasElement;

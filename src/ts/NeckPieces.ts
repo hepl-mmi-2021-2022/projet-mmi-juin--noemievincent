@@ -7,9 +7,10 @@ export class NeckPieces {
     private readonly sprite: HTMLImageElement;
     public x: number;
     public y: number;
-    private readonly width: number;
-    private readonly height: number;
+    readonly width: number;
+    readonly height: number;
     public speed: number;
+    public hasHit: boolean;
 
     constructor(canvasElement: HTMLCanvasElement, ctx: CanvasRenderingContext2D, sprite: HTMLImageElement) {
         this.canvasElement = canvasElement;
@@ -18,8 +19,10 @@ export class NeckPieces {
         this.width = settings.neckPieces.width;
         this.height = settings.neckPieces.height;
         this.speed = settings.neckPieces.speed;
+        this.hasHit = false;
         this.x = random(settings.neckPieces.x.min, settings.neckPieces.x.max) - this.width;
-        this.y = random(-this.height/2, -canvasElement.height);
+        this.y = random(-this.height/2, -canvasElement.height/2);
+        // this.y = 0;
         this.draw();
     }
 
@@ -39,6 +42,9 @@ export class NeckPieces {
 
     update() {
         this.y += this.speed;
+        if (this.hasHit) {
+            // TODO
+        }
         this.draw();
     }
 }

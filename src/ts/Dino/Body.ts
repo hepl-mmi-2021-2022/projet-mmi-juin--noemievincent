@@ -1,4 +1,6 @@
 import {settings} from "../settings";
+import {Dino} from "./Dino";
+import {NeckPieces} from "../NeckPieces";
 
 export class Body {
     private readonly canvasElement: HTMLCanvasElement;
@@ -32,5 +34,11 @@ export class Body {
             this.width,
             this.height,
         );
+    }
+
+    update() {
+        // this.y += settings.neckPieces.height;
+        this.ctx.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
+        this.draw();
     }
 }

@@ -15,10 +15,10 @@ export class GameController {
         window.addEventListener('keydown', (e: KeyboardEvent) => {
             if (e.key === 'ArrowLeft') {
                 this.dino.direction = 'left';
-                console.log(e.key);
+                // console.log(e.key);
             } if (e.key === 'ArrowRight') {
                 this.dino.direction = 'right';
-                console.log(e.key);
+                // console.log(e.key);
             }
             this.dino.update();
         })

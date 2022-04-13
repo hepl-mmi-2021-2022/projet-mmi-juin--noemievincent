@@ -13,10 +13,10 @@ export const settings = {
         width: 12,
         maxCount: 1,
         x: {min: 70, max: 210},
-        speed: 3,
+        speed: 1,
     },
     dino: {
-        speed: 10,
+        xSpeed: 10,
         head: {
             sx: 22,
             sy: 0,
