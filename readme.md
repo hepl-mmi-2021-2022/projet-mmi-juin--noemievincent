@@ -1,6 +1,6 @@
 # Like A Dino !
 
-Retrouvez le projet [ici](https://hepl-mmi-2021-2022.github.io/projet-mmi-juin-noemie-vincent/)
+>Retrouvez le projet [ici](https://hepl-mmi-2021-2022.github.io/projet-mmi-juin-noemie-vincent/)
 ### Présentation
 
 **Like A Dino !** est un jeu développé par [super-toki](https://www.super-toki.com/) où il faut tenter de faire grandir le cou d'un dinosaure.
