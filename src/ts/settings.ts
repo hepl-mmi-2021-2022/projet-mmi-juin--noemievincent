@@ -1,4 +1,10 @@
 export const settings = {
+    spriteSrc: 'src/img/sprite.png',
+    canvas: {
+        background: 'background',
+        game: 'game',
+        CanvasRenderingContext: '2d'
+    },
     limitLine: {
         yRatio: 1 / 3,
         dashLength: 4,
@@ -16,7 +22,7 @@ export const settings = {
         speed: 1,
     },
     dino: {
-        xSpeed: 10,
+        speed: 10,
         head: {
             sx: 22,
             sy: 0,
@@ -29,5 +35,5 @@ export const settings = {
             width: 52,
             height: 72,
         }
-    }
+    },
 }

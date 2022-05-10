@@ -1,5 +1,5 @@
 import {Animation} from "./Animation";
-import {Dino} from "./Dino/Dino";
+import {Dino} from "./Drawable/Dino/Dino";
 
 export class GameController {
     private animation: Animation;

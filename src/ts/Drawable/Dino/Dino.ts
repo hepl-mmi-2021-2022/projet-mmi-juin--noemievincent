@@ -1,7 +1,7 @@
 import {Body} from "./Body";
 import {Head} from "./Head";
 import {Neck} from "./Neck";
-import {settings} from "../settings";
+import {settings} from "../../settings";
 import {Score} from "../Score";
 import {Life} from "../Life";
 import {NeckPieces} from "../NeckPieces";
@@ -15,6 +15,7 @@ export class Dino {
     public neck: Neck;
     public direction: string;
     public speed: number;
+    private velocity: number;
     private score: Score;
     private life: Life;
     private position: { x: number; y: number };
@@ -25,11 +26,12 @@ export class Dino {
         this.ctx = ctx;
         this.sprite = sprite;
         this.neckPieces = neckPieces;
+        this.speed = settings.dino.speed;
         this.position = {
             x: this.canvasElement.width / 2,
             y: this.canvasElement.height - (this.canvasElement.height * settings.limitLine.yRatio),
+
         }
-        this.speed = settings.dino.xSpeed;
         this.direction = 'left';
         this.score = new Score(document.getElementById('score') as HTMLSpanElement);
         this.life = new Life(document.getElementById('life') as HTMLSpanElement);

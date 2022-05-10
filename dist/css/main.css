@@ -24,6 +24,11 @@ canvas {
   display: block;
   margin: 0 auto;
   border: 1px solid rgba(108, 117, 107, 0.4);
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 ::-moz-selection {
@@ -46,5 +51,5 @@ canvas {
 }
 
 .life:before {
-  content: url(../images/dino-head.png?4d7c4ce901d2ccf1781106dec90736ae);
+  content: url(../images/dino-head.png?f7aa1a14e00868dc95ad76e4a28ce089);
 }

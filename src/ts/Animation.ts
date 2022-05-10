@@ -1,6 +1,5 @@
-import {NeckPieces} from "./NeckPieces";
-import {Canvas} from "./Canvas";
-import {settings} from "./settings";
+import {NeckPieces} from "./Drawable/NeckPieces";
+import {Canvas} from "./Drawable/Canvas";
 
 export class Animation {
     private readonly canvasElement: HTMLCanvasElement;
@@ -11,8 +10,8 @@ export class Animation {
 
     constructor(canvas: Canvas) {
         this.canvas = canvas;
-        this.canvasElement = this.canvas.canvasElement;
-        this.ctx = this.canvas.ctx;
+        this.canvasElement = this.canvas.gameCanvasElement;
+        this.ctx = this.canvas.gameCtx;
         this.sprite = this.canvas.sprite;
         this.neckPieces = this.canvas.neckPieces;
         this.animate();
@@ -21,7 +20,6 @@ export class Animation {
     animate() {
         window.requestAnimationFrame(() => {this.animate();})
         this.ctx.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
-        this.canvas.draw();
         this.canvas.dino.draw();
         this.neckPieces.forEach((neckPiece: NeckPieces) => {
             neckPiece.update();
