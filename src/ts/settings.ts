@@ -12,7 +12,7 @@ export const settings = {
         color: '#6C756B',
         startPosition: 70,
     },
-    neckPieces: {
+    fallingNecks: {
         sx: 3,
         sy: 0,
         height: 26,
@@ -22,7 +22,7 @@ export const settings = {
         speed: 1,
     },
     dino: {
-        speed: 10,
+        speed: 5,
         head: {
             sx: 22,
             sy: 0,

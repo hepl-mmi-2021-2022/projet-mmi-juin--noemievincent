@@ -1,5 +1,5 @@
 import {settings} from "../settings";
-import {NeckPieces} from "./NeckPieces";
+import {FallingNeck} from "./FallingNeck";
 import {Dino} from "./Dino/Dino";
 import {LimitLine} from "./LimitLine";
 
@@ -10,7 +10,7 @@ export class Canvas {
     public gameCtx: CanvasRenderingContext2D;
     public sprite: HTMLImageElement;
     private limitLine: LimitLine;
-    public neckPieces: NeckPieces[];
+    public fallingNecks: FallingNeck[];
     public dino: Dino;
 
     constructor(sprite: HTMLImageElement) {
@@ -20,14 +20,14 @@ export class Canvas {
         this.gameCanvasElement = document.getElementById(settings.canvas.game) as HTMLCanvasElement;
         this.gameCtx = this.gameCanvasElement.getContext(settings.canvas.CanvasRenderingContext) as CanvasRenderingContext2D;
         this.sprite = sprite;
-        this.neckPieces = [];
+        this.fallingNecks = [];
         this.draw();
     }
 
     draw() {
-        this.dino = new Dino(this.gameCanvasElement, this.gameCtx, this.sprite, this.neckPieces);
-        for (let i = 0; i < settings.neckPieces.maxCount; i++) {
-           this.neckPieces.push(new NeckPieces(this.gameCanvasElement, this.gameCtx, this.sprite));
+        this.dino = new Dino(this.gameCanvasElement, this.gameCtx, this.sprite, this.fallingNecks);
+        for (let i = 0; i < settings.fallingNecks.maxCount; i++) {
+           this.fallingNecks.push(new FallingNeck(this.gameCanvasElement, this.gameCtx, this.sprite));
         }
     }
 }

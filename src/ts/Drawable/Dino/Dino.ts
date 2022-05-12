@@ -4,7 +4,7 @@ import {Neck} from "./Neck";
 import {settings} from "../../settings";
 import {Score} from "../Score";
 import {Life} from "../Life";
-import {NeckPieces} from "../NeckPieces";
+import {FallingNeck} from "../FallingNeck";
 
 export class Dino {
     private readonly canvasElement: HTMLCanvasElement;
@@ -15,17 +15,19 @@ export class Dino {
     public neck: Neck;
     public direction: string;
     public speed: number;
-    private velocity: number;
     private score: Score;
     private life: Life;
     private position: { x: number; y: number };
-    public neckPieces: NeckPieces[];
+    public fallingNecks: FallingNeck[];
+    private neckPieces: Neck[];
+    private isMoving: Boolean;
 
-    constructor(canvasElement: HTMLCanvasElement, ctx: CanvasRenderingContext2D, sprite: HTMLImageElement, neckPieces: NeckPieces[]) {
+    constructor(canvasElement: HTMLCanvasElement, ctx: CanvasRenderingContext2D, sprite: HTMLImageElement, fallingNecks: FallingNeck[]) {
         this.canvasElement = canvasElement;
         this.ctx = ctx;
         this.sprite = sprite;
-        this.neckPieces = neckPieces;
+        this.fallingNecks = fallingNecks;
+        this.neckPieces = [];
         this.speed = settings.dino.speed;
         this.position = {
             x: this.canvasElement.width / 2,
@@ -44,32 +46,32 @@ export class Dino {
         if (this.direction === 'right') {
             this.ctx.scale(-1, 1);
         }
-        this.neck = new Neck(this.canvasElement, this.ctx, this.sprite);
-        this.body = new Body(this.canvasElement, this.ctx, this.sprite);
-        this.head = new Head(this.canvasElement, this.ctx, this.sprite);
+        this.neck = new Neck(this.ctx, this.sprite);
+        this.body = new Body(this.ctx, this.sprite);
+        this.head = new Head(this.ctx, this.sprite);
         this.checkHit();
         this.ctx.restore();
     }
 
-    update() {
-        if (this.position.x > settings.neckPieces.x.min && this.direction === 'left') {
+    moveX() {
+        if (this.position.x > settings.fallingNecks.x.min && this.direction === 'left') {
             this.position.x -= this.speed;
         }
-        if (this.position.x < settings.neckPieces.x.max && this.direction === 'right') {
+        if (this.position.x < settings.fallingNecks.x.max && this.direction === 'right') {
             this.position.x += this.speed;
         }
         this.draw();
     }
 
     checkHit() {
-        this.neckPieces.forEach((neckPiece: NeckPieces) => {
+        this.fallingNecks.forEach((fallingNeck: FallingNeck, index: number) => {
             const bottomLeft = {
-                x: neckPiece.x,
-                y: Math.floor(neckPiece.y + neckPiece.height),
+                x: fallingNeck.x,
+                y: Math.floor(fallingNeck.y + fallingNeck.height),
             }
             const bottomRight = {
-                x: Math.floor(neckPiece.x + neckPiece.width),
-                y: Math.floor(neckPiece.y + neckPiece.height),
+                x: Math.floor(fallingNeck.x + fallingNeck.width),
+                y: Math.floor(fallingNeck.y + fallingNeck.height),
 
             }
             const topLeft = {
@@ -83,14 +85,24 @@ export class Dino {
             if ((bottomLeft.x > topLeft.x - 6) && (bottomRight.x < topRight.x + 6)) {
                 console.log('OK X');
                 if ((bottomLeft.y === topRight.y)) {
-                    neckPiece.hasHit = true;
+                    fallingNeck.hasHit = true;
                     console.log('OK Y');
                 }
             }
-            if (neckPiece.hasHit) {
-                this.body.y += settings.neckPieces.height;
+            if (fallingNeck.hasHit) {
+                this.body.y += settings.fallingNecks.height;
+                //this.fallingNecks.splice(index, 1);
+                this.neckPieces.push(fallingNeck);
+                //debugger;
+                this.neckPieces.forEach((neck: Neck) => {
+                    // neck.y = this.neck.y + this.neck.height;
+                })
+                this.body.update();
             }
-            this.body.update();
+
+            if (fallingNeck.isOutside) {
+                this.fallingNecks.splice(index, 1);
+            }
         })
     }
 }

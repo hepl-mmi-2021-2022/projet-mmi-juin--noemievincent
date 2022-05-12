@@ -1,21 +1,19 @@
 import {settings} from "../../settings";
 
 export class Neck {
-    private readonly canvasElement: HTMLCanvasElement;
-    private ctx: CanvasRenderingContext2D;
-    private readonly sprite: HTMLImageElement;
+    public ctx: CanvasRenderingContext2D;
+    public readonly sprite: HTMLImageElement;
     public x: number;
     public y: number;
     readonly width: number;
     readonly height: number;
 
-    constructor(canvasElement: HTMLCanvasElement, ctx: CanvasRenderingContext2D, sprite: HTMLImageElement) {
-        this.canvasElement = canvasElement;
+    constructor(ctx: CanvasRenderingContext2D, sprite: HTMLImageElement) {
         this.ctx = ctx;
         this.sprite = sprite;
-        this.width = settings.neckPieces.width;
-        this.height = settings.neckPieces.height;
-        this.x = settings.neckPieces.sx;
+        this.width = settings.fallingNecks.width;
+        this.height = settings.fallingNecks.height;
+        this.x = settings.fallingNecks.sx;
         this.y = -this.height;
         this.draw();
     }
@@ -23,8 +21,8 @@ export class Neck {
     draw() {
         this.ctx.drawImage(
             this.sprite,
-            settings.neckPieces.sx,
-            settings.neckPieces.sy,
+            settings.fallingNecks.sx,
+            settings.fallingNecks.sy,
             this.width,
             this.height,
             this.x,

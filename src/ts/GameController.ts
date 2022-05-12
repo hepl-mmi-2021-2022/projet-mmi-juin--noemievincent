@@ -20,7 +20,7 @@ export class GameController {
                 this.dino.direction = 'right';
                 // console.log(e.key);
             }
-            this.dino.update();
+            this.dino.moveX();
         })
     }
 }
