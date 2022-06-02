@@ -14,16 +14,20 @@ export class GameController {
     addEventListeners() {
         window.addEventListener('keydown', (key: KeyboardEvent) => {
             if (key.code === 'ArrowLeft') {
+                this.dino.isMoving = true;
                 this.dino.direction = 'left';
             } if (key.code === 'ArrowRight') {
+                this.dino.isMoving = true;
                 this.dino.direction = 'right';
             }
         })
         window.addEventListener('keyup', (key: KeyboardEvent) => {
             if (key.code === 'ArrowLeft') {
-                this.dino.direction = '';
+                this.dino.isMoving = false;
+                // this.dino.direction = '';
             } if (key.code === 'ArrowRight') {
-                this.dino.direction = '';
+                this.dino.isMoving = false;
+                // this.dino.direction = '';
             }
         })
     }

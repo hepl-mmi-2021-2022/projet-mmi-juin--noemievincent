@@ -1,5 +1,6 @@
 export const settings = {
     spriteSrc: 'src/img/sprite.png',
+    gameSpeed: 1,
     canvas: {
         background: 'background',
         game: 'game',
@@ -19,10 +20,9 @@ export const settings = {
         width: 12,
         maxCount: 1,
         x: {min: 70, max: 210},
-        speed: 1,
     },
     dino: {
-        speed: 5,
+        speed: 2,
         head: {
             sx: 22,
             sy: 0,

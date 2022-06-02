@@ -9,21 +9,21 @@ export class FallingNeck {
     public y: number;
     readonly width: number;
     readonly height: number;
-    public speed: number;
     public hasHit: boolean;
-    isOutside: boolean;
+    public isOutside: boolean;
+    private gameSpeed: number;
 
-    constructor(canvasElement: HTMLCanvasElement, ctx: CanvasRenderingContext2D, sprite: HTMLImageElement) {
+    constructor(canvasElement: HTMLCanvasElement, ctx: CanvasRenderingContext2D, sprite: HTMLImageElement, gameSpeed: number) {
         this.canvasElement = canvasElement;
         this.ctx = ctx;
         this.sprite = sprite;
+        this.gameSpeed = gameSpeed;
         this.width = settings.fallingNecks.width;
         this.height = settings.fallingNecks.height;
-        this.speed = settings.fallingNecks.speed;
         this.hasHit = false;
         this.isOutside = false;
         this.x = random(settings.fallingNecks.x.min, settings.fallingNecks.x.max) - this.width;
-        this.y = random(-this.height/2, -canvasElement.height/2);
+        this.y = random(-this.height / 2, -canvasElement.height / 2);
         this.draw();
     }
 
@@ -42,7 +42,7 @@ export class FallingNeck {
     }
 
     update() {
-        this.y += this.speed;
+        this.y += this.gameSpeed;
         if (this.hasHit) {
             //TODO : l'ajouter au cou du dino juste en dessous du cou précédent
         }

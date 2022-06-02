@@ -19,6 +19,8 @@ export class Dino {
     private position: { x: number; y: number };
     public fallingNecks: FallingNeck[];
     private neckPieces: Neck[];
+    public isMoving: Boolean;
+    private speed: number;
 
     constructor(canvasElement: HTMLCanvasElement, ctx: CanvasRenderingContext2D, sprite: HTMLImageElement, fallingNecks: FallingNeck[]) {
         this.canvasElement = canvasElement;
@@ -29,9 +31,9 @@ export class Dino {
         this.position = {
             x: this.canvasElement.width / 2,
             y: this.canvasElement.height - (this.canvasElement.height * settings.limitLine.yRatio),
-
         }
-        this.direction = '';
+        this.direction = 'left';
+        this.speed = settings.dino.speed;
         this.score = new Score(document.getElementById('score') as HTMLSpanElement);
         this.life = new Life(document.getElementById('life') as HTMLSpanElement);
         this.draw();
@@ -52,11 +54,11 @@ export class Dino {
     }
 
     moveX() {
-        if (this.position.x > settings.fallingNecks.x.min && this.direction === 'left') {
-            this.position.x--;
+        if (this.position.x > settings.fallingNecks.x.min && this.direction === 'left' && this.isMoving) {
+            this.position.x -= this.speed;
         }
-        if (this.position.x < settings.fallingNecks.x.max && this.direction === 'right') {
-            this.position.x++;
+        if (this.position.x < settings.fallingNecks.x.max && this.direction === 'right' && this.isMoving) {
+            this.position.x += this.speed;
         }
     }
 
@@ -91,7 +93,7 @@ export class Dino {
                 this.neckPieces.push(fallingNeck);
                 //debugger;
                 this.neckPieces.forEach((neck: Neck) => {
-                    neck.y = this.neck.y + this.neck.height;
+                    // neck.y = this.neck.y + this.neck.height;
                 })
                 this.body.update();
                 //this.fallingNecks.splice(index, 1);
